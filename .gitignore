@@ -1,0 +1,43 @@
+# Derleme çıktıları
+bin/
+obj/
+build/
+android/build/
+windows/bin/
+windows/obj/
+
+# Test / ekran görüntüleri / yerel durum (yayına girmez)
+test/
+_durum/
+_release/
+ayarlar.txt
+olcum-*.txt
+ui-*.xml
+
+# İmzalama anahtarları ve sırlar
+*.keystore
+*.jks
+*.p12
+*.pem
+*.pfx
+
+# Derlenmiş dosyalar (Release olarak ayrıca yüklenecek)
+*.exe
+*.dll
+*.pdb
+*.apk
+*.zip
+
+# Yedekler ve geçici dosyalar
+yedek-*/
+*.eski
+*.log
+*.tmp
+*.bak
+
+# Editör / işletim sistemi
+.vs/
+.idea/
+*.user
+.DS_Store
+Thumbs.db
