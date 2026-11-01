@@ -14,10 +14,12 @@ HTTP/JPEG protokolünü kullanır.
 - Windows uygulaması tablete bağlanır ve tablette gösterilen 4 haneli eşleştirme
   kodunu girer.
 - Eşleşme sonrası Windows, seçilen monitörü yakalayıp JPEG kareler halinde
-  gönderir. Tipik hız yaklaşık 12 kare/sn'dir; ağa ve tablete göre değişir.
+  gönderir. Tek bir tablet ve bilgisayarda ölçülen hız yaklaşık 12 kare/sn;
+  ağa ve cihaza göre değişir.
 - Tablet 5 saniye boyunca yeni kare alamazsa saat ekranına döner.
 - Tablet uygulaması açılışta otomatik başlayacak şekilde yapılandırılmıştır ve
-  ekran yönünü `fullSensor` ile otomatik ayarlar.
+  ekran yönünü `fullSensor` ile otomatik ayarlar (dört yönde fiziksel döndürme
+  testi yapılmadı, bkz. Doğrulanmayanlar).
 - Ses aktarılmaz; dokunmatik veya fare olayları tablete geri gönderilmez.
 
 ## Kurulum
@@ -47,6 +49,8 @@ uyuşmazlığı nedeniyle önce eski uygulamayı kaldırmanız gerekebilir.
    istediğiniz monitörü seçin; **Başlat**'a basın.
 5. İlk çalıştırmada Windows güvenlik duvarı sorarsa, yalnızca yerel ağ için
    izin verin.
+
+Yalnızca Windows 10 22H2'de test edildi; diğer sürümler denenmedi.
 
 Windows tarafında örnek bir yerel IP `192.168.1.x` biçimindedir; kendi ağınıza
 göre girin.
@@ -86,10 +90,15 @@ ayarlarını aç** düğmesi yalnızca ayarlar sayfasını açar; konumu değiş
 - Dokunmatik ve fare olayları tablete geri gönderilmez; tablet yalnızca
   görüntü alır.
 - Ses aktarımı yoktur.
-- Video akıcı değildir; JPEG kareler ve yaklaşık 12 kare/sn hedeflenir.
+- Video akıcı değildir; JPEG kareler kullanılır ve tek tablet/bilgisayarda
+  yaklaşık 12 kare/sn ölçüldü.
 - Şifreleme yoktur; yalnızca güvenilen yerel ağda kullanılmalıdır.
 - Eşleştirme 4 haneli kod iledir; kod tahmin edilebilir, bu nedenle uygulama
   internete açılmamalıdır.
+
+## Güvenlik
+
+Eşleştirme kodu 4 haneli ve trafik şifresizdir; yalnızca güvendiğiniz yerel ağda kullanın, internete açmayın.
 
 ## Derleme
 
@@ -132,7 +141,12 @@ for a Windows PC on the same local network. The tablet runs a small HTTP server
 on port 8765 and displays JPEG frames sent by the Windows sender after a
 four-digit pairing code. It is not compatible with Chromecast, Miracast or
 Google Cast; it uses its own minimal protocol. Audio and touch/mouse input are
-not supported. The project was tested only with a Vestel P10 tablet on Android
-4.1.1 and Windows 10; four-way rotation and mouse edge crossing were not fully
-verified. The optional Virtual Display Driver is a separate MIT-licensed
-project and is not included. Licensed under MIT, 2026 avsessisozx.
+not supported. The measured rate was about 12 frames/s on a single tablet and
+PC; it varies with the network and device. Automatic rotation is enabled, but
+four-way physical rotation was not tested (see the unverified section). The
+project was tested only with a Vestel P10 tablet on Android 4.1.1 and Windows 10
+22H2; other Windows versions were not tested, and mouse edge crossing was not
+fully verified. Pairing uses a four-digit code and traffic is unencrypted; use
+it only on a trusted local network and never expose it to the internet. The
+optional Virtual Display Driver is a separate MIT-licensed project and is not
+included. Licensed under MIT, 2026 avsessisozx.
