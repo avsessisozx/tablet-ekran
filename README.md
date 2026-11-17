@@ -1,5 +1,7 @@
 # TabletEkran
 
+> ⬇️ **İndir:** [Tablet uygulaması (APK) ve Windows göndericisi (ZIP)](https://github.com/avsessisozx/tablet-ekran/releases/latest)
+
 Eski bir Android tableti, aynı yerel ağdaki Windows bilgisayar için kablosuz
 ikinci ekran / ekran alıcısı olarak kullanmanızı sağlayan küçük bir araçtır.
 Tablet uygulaması görüntüyü alır ve tam ekran gösterir; Windows tarafı seçilen
